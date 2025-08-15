@@ -56,6 +56,28 @@
 
 <body class="text-gray-800">
 
+    <audio id="background-music" src="lagu.mp3" loop></audio>
+
+    <!-- Tombol Mute -->
+    <button id="mute-button"
+        class="fixed bottom-5 right-5 bg-white/80 backdrop-blur-sm p-3 rounded-full shadow-lg z-50 text-2xl"
+        aria-label="Toggle Music">
+        <span>🔊</span>
+    </button>
+
+    <!-- Layar Pembuka -->
+    <div id="start-overlay"
+        class="fixed inset-0 bg-black/70 backdrop-blur-sm flex flex-col items-center justify-center z-50 transition-opacity duration-500">
+        <div class="text-center text-white p-4">
+            <h2 class="font-merriweather text-3xl font-bold mb-4">Selamat Datang</h2>
+            <p class="mb-8 max-w-sm">Klik untuk memasuki laman undangan dengan acara HUT RI ke-80 Warga RT 04.</p>
+            <button id="start-button"
+                class="bg-red-700 text-white font-bold py-3 px-8 rounded-lg hover:bg-red-800 transition-colors text-lg shadow-lg">
+                Buka undangan
+            </button>
+        </div>
+    </div>
+
     <main class="max-w-4xl mx-auto">
         <!-- Hero Section -->
         <header class="hero-bg text-white text-center py-16 px-4 rounded-b-3xl shadow-lg">
@@ -107,7 +129,7 @@
                     <h3 class="font-bold text-xl mb-3 text-red-800">📍 Di Mana?</h3>
                     <p class="text-lg font-semibold">Kavling PGRI XIII</p>
                     <p class="text-gray-600 mb-4">(Area belakang Wisma Dwi Warna)</p>
-                    <a href="https://maps.app.goo.gl/YP4ufxCMq5w8JsSM7" target="_blank"
+                    <a href="https://www.google.com/maps/search/?api=1&query=Wisma+Dwi+Warna+Bekasi" target="_blank"
                         class="inline-block bg-red-700 text-white font-bold py-2 px-4 rounded-lg hover:bg-red-800 transition-colors">
                         Lihat Peta
                     </a>
@@ -159,6 +181,7 @@
     </main>
 
     <script>
+        // Countdown Logic
         const countdown = () => {
             const eventDate = new Date('August 16, 2025 19:00:00').getTime();
             const now = new Date().getTime();
@@ -180,8 +203,35 @@
             document.getElementById('seconds').innerText = String(seconds).padStart(2, '0');
         };
 
-        setInterval(countdown, 1000);
-        countdown();
+        // Audio Control & Start Logic
+        window.addEventListener('load', () => {
+            setInterval(countdown, 1000);
+            countdown();
+
+            const audio = document.getElementById('background-music');
+            const muteButton = document.getElementById('mute-button');
+            const muteIcon = muteButton.querySelector('span');
+            const startOverlay = document.getElementById('start-overlay');
+            const startButton = document.getElementById('start-button');
+
+            audio.volume = 0.3;
+
+            startButton.addEventListener('click', () => {
+                startOverlay.classList.add('opacity-0');
+                setTimeout(() => {
+                    startOverlay.style.display = 'none';
+                }, 500);
+
+                audio.play().catch(error => {
+                    console.error("Audio playback failed:", error);
+                });
+            });
+
+            muteButton.addEventListener('click', () => {
+                audio.muted = !audio.muted;
+                muteIcon.innerText = audio.muted ? '🔇' : '🔊';
+            });
+        });
     </script>
 
 </body>
