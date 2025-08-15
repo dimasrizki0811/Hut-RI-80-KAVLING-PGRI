@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Undangan Malam Tasyakuran HUT RI ke-80 RT 04</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&family=Merriweather:wght@400;700&display=swap"
+        rel="stylesheet">
+    <!-- Chosen Palette: Nusantara Warmth -->
+    <!-- Application Structure Plan: Laman ini dirancang sebagai event page satu halaman yang mengalir dari atas ke bawah. Strukturnya adalah: 1. Hero Section dengan judul dan hitung mundur untuk menciptakan antusiasme. 2. Bagian Undangan Resmi yang menyajikan inti pesan dengan lebih hangat. 3. Detail Acara (Kapan & Di Mana) menggunakan kartu ikon agar mudah dipindai. 4. Rangkaian Acara dalam format timeline vertikal yang menarik secara visual. 5. Pesan Penutup dari panitia. Struktur ini dipilih untuk mengubah dokumen statis menjadi pengalaman yang dinamis dan informatif, memandu warga melalui detail acara secara logis dan menarik. -->
+    <!-- Visualization & Content Choices: Informasi dari surat diubah menjadi komponen web interaktif. Tujuan: Menginformasikan dan Melibatkan. Metode: 1. Hitung Mundur (JS) untuk membangun antisipasi. 2. Kartu Detail Acara (HTML/Tailwind + Ikon Unicode) untuk kejelasan visual. 3. Timeline Acara (HTML/Tailwind) untuk menyajikan jadwal secara menarik. Interaksi: Tombol "Lihat Peta" untuk utilitas pengguna. Justifikasi: Komponen ini lebih efektif dalam menyampaikan informasi di platform digital dibandingkan teks biasa, meningkatkan keterbacaan dan engagement. Library: Hanya Vanilla JS untuk hitung mundur. -->
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #FDFDF6;
+        }
+
+        .font-merriweather {
+            font-family: 'Merriweather', serif;
+        }
+
+        .hero-bg {
+            background-color: #8B0000;
+            background-image:
+                radial-gradient(circle at 10% 10%, #FFFFFF44 1px, transparent 1px),
+                radial-gradient(circle at 90% 80%, #FFFFFF44 1px, transparent 1px);
+            background-size: 30px 30px;
+        }
+
+        .countdown-box {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -31px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background-color: #D32F2F;
+            border: 3px solid #FDFDF6;
+        }
+    </style>
+</head>
+
+<body class="text-gray-800">
+
+    <main class="max-w-4xl mx-auto">
+        <!-- Hero Section -->
+        <header class="hero-bg text-white text-center py-16 px-4 rounded-b-3xl shadow-lg">
+            <h1 class="font-merriweather text-4xl md:text-5xl font-bold drop-shadow-md">Malam Tasyakuran & Panggung
+                Gembira</h1>
+            <p class="mt-2 text-lg md:text-xl font-semibold">Dalam Rangka HUT Kemerdekaan RI ke-80</p>
+            <p class="text-2xl font-bold text-red-200">RT 04 / RW 021</p>
+
+            <div id="countdown" class="mt-8 flex justify-center space-x-2 md:space-x-4">
+                <div class="countdown-box p-3 md:p-4 rounded-lg w-20 md:w-24">
+                    <div id="days" class="text-3xl md:text-4xl font-black">00</div>
+                    <div class="text-xs md:text-sm">Hari</div>
+                </div>
+                <div class="countdown-box p-3 md:p-4 rounded-lg w-20 md:w-24">
+                    <div id="hours" class="text-3xl md:text-4xl font-black">00</div>
+                    <div class="text-xs md:text-sm">Jam</div>
+                </div>
+                <div class="countdown-box p-3 md:p-4 rounded-lg w-20 md:w-24">
+                    <div id="minutes" class="text-3xl md:text-4xl font-black">00</div>
+                    <div class="text-xs md:text-sm">Menit</div>
+                </div>
+                <div class="countdown-box p-3 md:p-4 rounded-lg w-20 md:w-24">
+                    <div id="seconds" class="text-3xl md:text-4xl font-black">00</div>
+                    <div class="text-xs md:text-sm">Detik</div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Invitation Section -->
+        <section class="py-12 px-6 md:px-8 text-center">
+            <p class="font-merriweather text-lg">Kepada Yth,</p>
+            <h2 class="font-merriweather text-2xl md:text-3xl font-bold text-red-800 my-2">Bapak/Ibu Warga RT 04</h2>
+            <p class="max-w-2xl mx-auto text-gray-600">
+                Dengan penuh rasa syukur, kami mengundang seluruh warga untuk bersama-sama merayakan semangat
+                kemerdekaan dalam malam kebersamaan yang penuh kegembiraan. Mari kita eratkan tali silaturahmi dan
+                kenang jasa para pahlawan.
+            </p>
+        </section>
+
+        <!-- Details Section -->
+        <section class="px-6 md:px-8 pb-12">
+            <div class="grid md:grid-cols-2 gap-6">
+                <div class="bg-white p-6 rounded-xl shadow-md border border-gray-200">
+                    <h3 class="font-bold text-xl mb-3 text-red-800">🗓️ Kapan?</h3>
+                    <p class="text-lg font-semibold">Sabtu, 16 Agustus 2025</p>
+                    <p class="text-gray-600">Pukul 19.00 WIB sampai selesai</p>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-md border border-gray-200">
+                    <h3 class="font-bold text-xl mb-3 text-red-800">📍 Di Mana?</h3>
+                    <p class="text-lg font-semibold">Kavling PGRI XIII</p>
+                    <p class="text-gray-600 mb-4">(Area belakang Wisma Dwi Warna)</p>
+                    <a href="https://www.google.com/maps/search/?api=1&query=Wisma+Dwi+Warna+Bekasi" target="_blank"
+                        class="inline-block bg-red-700 text-white font-bold py-2 px-4 rounded-lg hover:bg-red-800 transition-colors">
+                        Lihat Peta
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Agenda Section -->
+        <section class="px-6 md:px-8 pb-16">
+            <h2 class="font-merriweather text-3xl font-bold text-center mb-8 text-red-800">Rangkaian Acara</h2>
+            <div class="relative max-w-md mx-auto">
+                <div class="absolute left-0 top-0 h-full w-0.5 bg-red-200 ml-[-22px]"></div>
+                <div class="space-y-10">
+                    <div class="relative pl-8 timeline-item">
+                        <h4 class="font-bold text-lg">Doa Bersama & Potong Tumpeng</h4>
+                        <p class="text-sm text-gray-600">Memulai acara dengan rasa syukur sebagai simbol kebersamaan dan
+                            harapan.</p>
+                    </div>
+                    <div class="relative pl-8 timeline-item">
+                        <h4 class="font-bold text-lg">Makan Bersama</h4>
+                        <p class="text-sm text-gray-600">Menikmati hidangan yang telah disiapkan untuk mempererat
+                            keakraban antarwarga.</p>
+                    </div>
+                    <div class="relative pl-8 timeline-item">
+                        <h4 class="font-bold text-lg">Panggung Gembira</h4>
+                        <p class="text-sm text-gray-600">Menyaksikan penampilan pentas seni dari anak-anak dan
+                            putra-putri RT 04.</p>
+                    </div>
+                    <div class="relative pl-8 timeline-item">
+                        <h4 class="font-bold text-lg">Pembagian Hadiah & Doorprize</h4>
+                        <p class="text-sm text-gray-600">Momen yang ditunggu-tunggu, pembagian hadiah bagi para pemenang
+                            lomba dan kejutan doorprize.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="bg-gray-800 text-white text-center py-10 px-6 rounded-t-3xl">
+            <p class="max-w-xl mx-auto">Kehadiran Bapak/Ibu adalah semangat bagi kami dan wujud nyata dari persatuan di
+                lingkungan kita.</p>
+            <p class="mt-4 font-bold">Atas perhatiannya, kami ucapkan terima kasih.</p>
+            <div class="mt-6">
+                <p>Hormat kami,</p>
+                <p class="font-bold text-lg mt-1">Agung Supriyanto</p>
+                <p class="text-sm text-gray-300">(Ketua RT 04)</p>
+            </div>
+        </footer>
+    </main>
+
+    <script>
+        const countdown = () => {
+            const eventDate = new Date('August 16, 2025 19:00:00').getTime();
+            const now = new Date().getTime();
+            const distance = eventDate - now;
+
+            if (distance < 0) {
+                document.getElementById('countdown').innerHTML = '<div class="text-2xl font-bold">Acara Telah Berlangsung!</div>';
+                return;
+            }
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            document.getElementById('days').innerText = String(days).padStart(2, '0');
+            document.getElementById('hours').innerText = String(hours).padStart(2, '0');
+            document.getElementById('minutes').innerText = String(minutes).padStart(2, '0');
+            document.getElementById('seconds').innerText = String(seconds).padStart(2, '0');
+        };
+
+        setInterval(countdown, 1000);
+        countdown();
+    </script>
+
+</body>
+
+</html>
